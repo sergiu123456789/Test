@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red Scrollbar Example</title>
+
+  <style>
+    a {
+      text-decoration: none;
+      color: #000;
+      position: relative;
+      margin-right: 20px; /* Adjust margin as needed */
+      cursor: pointer;
+    }
+
+    a:hover {
+      /* Add styles for hover effect if needed */
+    }
+
+    .selected {
+      color: #ff0000; /* Change color on selected state */
+    }
+
+    .selected::after {
+      content: "";
+      position: absolute;
+      bottom: -2px; /* Adjust the distance from the text */
+      left: 0;
+      width: 25%; /* Adjust the width as needed */
+      height: 2px; /* Adjust the thickness of the scrollbar */
+      background-color: #ff0000; /* Color of the scrollbar */
+      transition: width 0.3s ease; /* Add a smooth transition effect */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>index.html is shown</h1>
+  <a onclick="selectLink(this)" id="link1">Link 1</a>
+  <a onclick="selectLink(this)" id="link2">Link 2</a>
+  <a onclick="selectLink(this)" id="link3">Link 3</a>
+
+  <div id="content">
+    <h2>Content Area</h2>
+    <p id="link1-content">Link 1 Content</p>
+    <p id="link2-content">Link 2 Content</p>
+    <p id="link3-content">Link 3 Content</p>
+  </div>
+
+  <script>
+    function selectLink(link) {
+      // Remove 'selected' class from all links
+      document.querySelectorAll('a').forEach(function(el) {
+        el.classList.remove('selected');
+      });
+
+      // Add 'selected' class to the clicked link
+      link.classList.add('selected');
+
+      // Scroll to the content associated with the clicked link
+      var contentId = link.id + '-content';
+      document.getElementById(contentId).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  </script>
+
+</body>
+</html>
