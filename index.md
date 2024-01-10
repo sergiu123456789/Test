@@ -35,7 +35,7 @@
   </style>
 </head>
 <body>
-
+  <h1>index.md is shown</h1>
   <a onclick="selectLink(this)" id="link1">Link 1</a>
   <a onclick="selectLink(this)" id="link2">Link 2</a>
   <a onclick="selectLink(this)" id="link3">Link 3</a>
